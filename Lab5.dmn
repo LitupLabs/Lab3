@@ -128,6 +128,9 @@ and Financial Eligibility = true</text>
   </decision>
   <decision name="Risk Category" id="_AD0A78AF-9AF0-4939-9E7F-64F4650D310A">
     <variable name="Risk Category" id="_BC82EDB3-EF84-4731-AE1F-94DC43FD1C46" typeRef="string" />
+    <informationRequirement id="_6CFF652E-5A8B-473C-81B6-005960D507BB">
+      <requiredInput href="#_2609F265-7C21-47DF-9FF9-9554B660EC0B" />
+    </informationRequirement>
     <knowledgeRequirement id="_51491275-5EF1-48A7-B15B-E4EB6443524D">
       <requiredKnowledge href="#_7A2E92DD-95D6-458D-BEE3-102A8A5DAF00" />
     </knowledgeRequirement>
@@ -139,6 +142,9 @@ else &quot;HIGH&quot;</text>
   </decision>
   <decision name="Financial Eligibility" id="_C9F1AEAF-8954-4C32-9F79-224793A2F8E3">
     <variable name="Financial Eligibility" id="_C8137E07-BB88-49F1-8533-3FDCFEF842CA" typeRef="boolean" />
+    <informationRequirement id="_A7D33DD9-1FF1-4DF8-9003-456B68283C39">
+      <requiredInput href="#_2609F265-7C21-47DF-9FF9-9554B660EC0B" />
+    </informationRequirement>
     <knowledgeRequirement id="_FDB23A77-203C-43D6-A3A4-4AE122AC7639">
       <requiredKnowledge href="#_D798587D-ADDF-4968-97F0-D7D2682D6734" />
     </knowledgeRequirement>
@@ -247,6 +253,14 @@ else 1</text>
       <dmndi:DMNEdge id="_7A30D0FB-34EB-4DA3-9538-9B27EAC7DA2B" dmnElementRef="_039B01EE-59D6-4C07-A4E1-05FF204F9639" sourceElement="_D3EFA8EF-1926-4090-BAD6-5CA92EE988EC" targetElement="_B4DBC94C-1EA3-46E2-8B42-FFF05A23D645">
         <di:waypoint x="780" y="240" />
         <di:waypoint x="840" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E5264CE2-4C9B-45BB-8473-31EAA8CAC578" dmnElementRef="_6CFF652E-5A8B-473C-81B6-005960D507BB" sourceElement="_45DF626B-F811-4D4C-8F19-BAB6FCF97D1D" targetElement="_D3EFA8EF-1926-4090-BAD6-5CA92EE988EC">
+        <di:waypoint x="360" y="300" />
+        <di:waypoint x="780" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CDF053CD-3C01-42F7-9ACC-A16080FB8C99" dmnElementRef="_A7D33DD9-1FF1-4DF8-9003-456B68283C39" sourceElement="_45DF626B-F811-4D4C-8F19-BAB6FCF97D1D" targetElement="_9AC6386A-9655-4800-9760-85F08964016F">
+        <di:waypoint x="360" y="300" />
+        <di:waypoint x="1080" y="240" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
