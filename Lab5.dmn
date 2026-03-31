@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_63B73CC5-2061-4091-9216-C01A88A94760" id="_43B1FE05-BF43-448F-AAB4-B6A121BFE435" name="DMN_DBFC9B51-E0BE-4EAA-AA77-4CED85C12B42">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:included0="https://kie.org/dmn/_B4287BB4-E178-4C59-94B7-E836F555525B" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_63B73CC5-2061-4091-9216-C01A88A94760" id="_43B1FE05-BF43-448F-AAB4-B6A121BFE435" name="DMN_DBFC9B51-E0BE-4EAA-AA77-4CED85C12B42">
+  <import id="_281D8269-987B-48B5-AFE6-05F32D844DF6" name="SupportingModel" importType="http://www.omg.org/spec/DMN/20180521/MODEL/" namespace="https://kie.org/dmn/_B4287BB4-E178-4C59-94B7-E836F555525B" locationURI="./Lab3.dmn" />
   <itemDefinition id="_7C0268E7-365B-4123-9A8A-7994B841423E" name="LoanOffer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_E65B2A96-B9CE-4CE9-89AD-BE7DA9689D3E" name="decision" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
@@ -106,6 +107,19 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Total Income" id="_E161C8B7-B261-4496-B7B3-068823B6261E">
+    <variable id="_10488F05-EAF7-4C44-9BDD-BDDB28D6EDA4" name="Total Income" typeRef="number" />
+    <informationRequirement id="_BD94C7BA-4C8D-4925-97C0-88A049F9F6FD">
+      <requiredInput href="#_2609F265-7C21-47DF-9FF9-9554B660EC0B" />
+    </informationRequirement>
+    <knowledgeRequirement id="_855A14F0-8D9A-4B63-898C-0D5A8542E05A">
+      <requiredKnowledge href="#_66811A4A-FEA6-40B9-BF3E-83215D7DEBA0" />
+    </knowledgeRequirement>
+    <literalExpression id="_A812BF6F-6205-4976-9A81-E6388E987FFA" typeRef="number" label="Total Income">
+      <text>LoanApplication.financials.monthlyIncome 
++ sum(LoanApplication.financials.otherIncomes)</text>
+    </literalExpression>
+  </decision>
   <inputData name="LoanApplication" id="_2609F265-7C21-47DF-9FF9-9554B660EC0B">
     <variable name="LoanApplication" id="_5AC06892-2ECA-40EB-B448-31BC46C896CF" typeRef="LoanApplication" />
   </inputData>
@@ -116,7 +130,9 @@
     <dmndi:DMNDiagram id="_D551E364-5BD5-41CC-B66D-EF11856B0561" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_A812BF6F-6205-4976-9A81-E6388E987FFA">
+            <kie:width>627</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_716BB036-ED7B-451B-87D6-FD6B10873AEE" dmnElementRef="_66811A4A-FEA6-40B9-BF3E-83215D7DEBA0" isCollapsed="false" isListedInputData="false">
@@ -127,8 +143,19 @@
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_45DF626B-F811-4D4C-8F19-BAB6FCF97D1D" dmnElementRef="_2609F265-7C21-47DF-9FF9-9554B660EC0B" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="100" width="160" height="80" />
+        <dc:Bounds x="1040" y="260" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B4DBC94C-1EA3-46E2-8B42-FFF05A23D645" dmnElementRef="_E161C8B7-B261-4496-B7B3-068823B6261E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1060" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_B53BC7EC-29E9-43C0-BA0B-1ABEDF6FAA7E-AUTO-TARGET" dmnElementRef="_855A14F0-8D9A-4B63-898C-0D5A8542E05A" sourceElement="_716BB036-ED7B-451B-87D6-FD6B10873AEE" targetElement="_B4DBC94C-1EA3-46E2-8B42-FFF05A23D645">
+        <di:waypoint x="660" y="160" />
+        <di:waypoint x="1140" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_B1A200E0-9A59-4B3D-A11C-19526663AD0C" dmnElementRef="_BD94C7BA-4C8D-4925-97C0-88A049F9F6FD" sourceElement="_45DF626B-F811-4D4C-8F19-BAB6FCF97D1D" targetElement="_B4DBC94C-1EA3-46E2-8B42-FFF05A23D645">
+        <di:waypoint x="1120" y="300" />
+        <di:waypoint x="1140" y="120" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
