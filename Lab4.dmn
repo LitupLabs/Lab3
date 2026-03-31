@@ -106,4 +106,35 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <businessKnowledgeModel name="Calculate Risk Score" id="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6">
+    <variable name="Calculate Risk Score" id="_404AEA67-3647-4738-8968-B18EC6AB834C" />
+    <encapsulatedLogic label="Calculate Risk Score" id="_7E401C37-B0C2-4616-A05A-AC18486D54A0" kind="FEEL">
+      <formalParameter id="_1684B8EF-BA30-472F-A873-C51816FCE679" name="loanApplication" typeRef="LoanApplication" />
+      <literalExpression id="_42D480A5-07D1-430A-9C83-235347F0B963" label="Return">
+        <text>if loanApplication.customer.creditScore &gt;= 750 then 3
+else if loanApplication.customer.creditScore &gt;= 650 then 2
+else 1</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <inputData name="LoanApplication" id="_98559022-D7B7-4E9D-88D5-72A57B296FB4">
+    <variable name="LoanApplication" id="_A41F919A-AD0C-461F-9340-295FD920F158" typeRef="LoanApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_351DE955-6DB0-4642-8F4D-682407C5CBB4" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_42D480A5-07D1-430A-9C83-235347F0B963">
+            <kie:width>832</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_3F547288-94AF-4BAB-BAEB-C7C6D4D37EF6" dmnElementRef="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="-200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7ABA7FE0-34DC-4D82-9006-5F13FFFB412F" dmnElementRef="_98559022-D7B7-4E9D-88D5-72A57B296FB4" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="-100" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
