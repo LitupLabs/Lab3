@@ -106,6 +106,17 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Risk Category" id="_FA79EC7F-2126-4819-A375-3C12B4D1E684">
+    <variable name="Risk Category" id="_229E3F53-E2E0-4FEF-A26A-4A6D16278733" typeRef="string" />
+    <knowledgeRequirement id="_571BA0F1-4611-4BAB-8182-8238A922A802">
+      <requiredKnowledge href="#_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6" />
+    </knowledgeRequirement>
+    <literalExpression id="_5335282C-3D17-4AB2-A2AE-5E66991237AE" typeRef="string" label="Risk Category">
+      <text>if Calculate Risk Score() = 3 then &quot;LOW&quot;
+else if Calculate Risk Score() = 2 then &quot;MEDIUM&quot;
+else &quot;HIGH&quot;</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6">
     <variable name="Calculate Risk Score" id="_404AEA67-3647-4738-8968-B18EC6AB834C" />
     <encapsulatedLogic label="Calculate Risk Score" id="_7E401C37-B0C2-4616-A05A-AC18486D54A0" kind="FEEL">
@@ -141,6 +152,9 @@ else 1</text>
           <kie:ComponentWidths dmnElementRef="_AF40519B-216D-44E3-8192-D5E6083E7A9D">
             <kie:width>857</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5335282C-3D17-4AB2-A2AE-5E66991237AE">
+            <kie:width>874</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3F547288-94AF-4BAB-BAEB-C7C6D4D37EF6" dmnElementRef="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6" isCollapsed="false" isListedInputData="false">
@@ -152,6 +166,13 @@ else 1</text>
       <dmndi:DMNShape id="_ED0DB53E-CC4A-4BE6-A91A-C1CF1F7BEC9F" dmnElementRef="_CE0868EE-6A49-4CA3-A284-2B7F4F83BB35" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="560" y="-40" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_37B15781-0E78-45AF-BFB2-AD56360F0115" dmnElementRef="_FA79EC7F-2126-4819-A375-3C12B4D1E684" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="740" y="-260" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_B3EC13DB-6DA5-46A0-8AC5-52372C5A335A" dmnElementRef="_571BA0F1-4611-4BAB-8182-8238A922A802" sourceElement="_3F547288-94AF-4BAB-BAEB-C7C6D4D37EF6" targetElement="_37B15781-0E78-45AF-BFB2-AD56360F0115">
+        <di:waypoint x="440" y="-160" />
+        <di:waypoint x="820" y="-220" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
