@@ -108,6 +108,9 @@
   </itemDefinition>
   <decision name="Risk Category" id="_FA79EC7F-2126-4819-A375-3C12B4D1E684">
     <variable name="Risk Category" id="_229E3F53-E2E0-4FEF-A26A-4A6D16278733" typeRef="string" />
+    <informationRequirement id="_78CFA921-CD21-476C-AABC-96E1AD3CBCDF">
+      <requiredInput href="#_98559022-D7B7-4E9D-88D5-72A57B296FB4" />
+    </informationRequirement>
     <knowledgeRequirement id="_571BA0F1-4611-4BAB-8182-8238A922A802">
       <requiredKnowledge href="#_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6" />
     </knowledgeRequirement>
@@ -115,6 +118,31 @@
       <text>if Calculate Risk Score() = 3 then &quot;LOW&quot;
 else if Calculate Risk Score() = 2 then &quot;MEDIUM&quot;
 else &quot;HIGH&quot;</text>
+    </literalExpression>
+  </decision>
+  <decision name="Financial Eligibility" id="_DDB98B72-59B2-45C1-BD3B-50931D94ADC0">
+    <variable name="Financial Eligibility" id="_BDC509F7-FE6F-48C1-B1B8-ADBB8A208387" typeRef="boolean" />
+    <informationRequirement id="_9159A245-C05D-4CD1-8A4D-38AF9C4C96C3">
+      <requiredInput href="#_98559022-D7B7-4E9D-88D5-72A57B296FB4" />
+    </informationRequirement>
+    <knowledgeRequirement id="_81F18DD2-11DF-4973-847F-5D99C1FED08E">
+      <requiredKnowledge href="#_CE0868EE-6A49-4CA3-A284-2B7F4F83BB35" />
+    </knowledgeRequirement>
+    <literalExpression id="_6990ABAF-1217-40B7-A884-7BDF743D3066" typeRef="boolean" label="Financial Eligibility">
+      <text>Calculate Financial Strength() &gt; 30000</text>
+    </literalExpression>
+  </decision>
+  <decision name="Loan Approval" id="_F445791A-A94E-45F8-90F5-5A0E57DAF6FF">
+    <variable name="Loan Approval" id="_CB92D381-E69D-49E4-B5F7-B3D8045FEB9D" typeRef="boolean" />
+    <informationRequirement id="_0DC46514-644E-4B50-AB97-3FEC3A6E2CE5">
+      <requiredDecision href="#_DDB98B72-59B2-45C1-BD3B-50931D94ADC0" />
+    </informationRequirement>
+    <informationRequirement id="_A0D33AE3-9CF9-4D3E-BFC0-46B78F0D0616">
+      <requiredDecision href="#_FA79EC7F-2126-4819-A375-3C12B4D1E684" />
+    </informationRequirement>
+    <literalExpression id="_15D5C053-CACE-4DC4-BDEB-2EBC272B2CF9" typeRef="boolean" label="Loan Approval">
+      <text>Risk Category != &quot;HIGH&quot;
+and Financial Eligibility = true</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6">
@@ -155,22 +183,54 @@ else 1</text>
           <kie:ComponentWidths dmnElementRef="_5335282C-3D17-4AB2-A2AE-5E66991237AE">
             <kie:width>874</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6990ABAF-1217-40B7-A884-7BDF743D3066">
+            <kie:width>753</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_15D5C053-CACE-4DC4-BDEB-2EBC272B2CF9">
+            <kie:width>803</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3F547288-94AF-4BAB-BAEB-C7C6D4D37EF6" dmnElementRef="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="360" y="-200" width="160" height="80" />
+        <dc:Bounds x="360" y="-280" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_7ABA7FE0-34DC-4D82-9006-5F13FFFB412F" dmnElementRef="_98559022-D7B7-4E9D-88D5-72A57B296FB4" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="120" y="-100" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_ED0DB53E-CC4A-4BE6-A91A-C1CF1F7BEC9F" dmnElementRef="_CE0868EE-6A49-4CA3-A284-2B7F4F83BB35" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="560" y="-40" width="160" height="80" />
+        <dc:Bounds x="560" y="0" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_37B15781-0E78-45AF-BFB2-AD56360F0115" dmnElementRef="_FA79EC7F-2126-4819-A375-3C12B4D1E684" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="740" y="-260" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_70B39F72-25BD-4114-B5AF-6D37D42DFCC3" dmnElementRef="_DDB98B72-59B2-45C1-BD3B-50931D94ADC0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="960" y="-80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_07519C20-D852-44B1-AC7D-15CD88AB6DC1" dmnElementRef="_F445791A-A94E-45F8-90F5-5A0E57DAF6FF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1200" y="-240" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_B3EC13DB-6DA5-46A0-8AC5-52372C5A335A" dmnElementRef="_571BA0F1-4611-4BAB-8182-8238A922A802" sourceElement="_3F547288-94AF-4BAB-BAEB-C7C6D4D37EF6" targetElement="_37B15781-0E78-45AF-BFB2-AD56360F0115">
-        <di:waypoint x="440" y="-160" />
+        <di:waypoint x="440" y="-240" />
+        <di:waypoint x="820" y="-220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_03CCF1B0-DDFA-4036-B15F-571B604444C7" dmnElementRef="_81F18DD2-11DF-4973-847F-5D99C1FED08E" sourceElement="_ED0DB53E-CC4A-4BE6-A91A-C1CF1F7BEC9F" targetElement="_70B39F72-25BD-4114-B5AF-6D37D42DFCC3">
+        <di:waypoint x="640" y="40" />
+        <di:waypoint x="1040" y="-40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_9625A449-CD59-45E6-A152-5196785E57FC" dmnElementRef="_0DC46514-644E-4B50-AB97-3FEC3A6E2CE5" sourceElement="_70B39F72-25BD-4114-B5AF-6D37D42DFCC3" targetElement="_07519C20-D852-44B1-AC7D-15CD88AB6DC1">
+        <di:waypoint x="1040" y="-40" />
+        <di:waypoint x="1280" y="-200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_8B953E0E-2B52-4280-A987-1CA54878A11A" dmnElementRef="_A0D33AE3-9CF9-4D3E-BFC0-46B78F0D0616" sourceElement="_37B15781-0E78-45AF-BFB2-AD56360F0115" targetElement="_07519C20-D852-44B1-AC7D-15CD88AB6DC1">
+        <di:waypoint x="820" y="-220" />
+        <di:waypoint x="1280" y="-200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_4CA4B314-10A3-4EEF-BF94-C53E6E430BAC" dmnElementRef="_9159A245-C05D-4CD1-8A4D-38AF9C4C96C3" sourceElement="_7ABA7FE0-34DC-4D82-9006-5F13FFFB412F" targetElement="_70B39F72-25BD-4114-B5AF-6D37D42DFCC3">
+        <di:waypoint x="200" y="-60" />
+        <di:waypoint x="1040" y="-40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F981D768-42F4-4B09-9A3D-397AEEC0D9C0" dmnElementRef="_78CFA921-CD21-476C-AABC-96E1AD3CBCDF" sourceElement="_7ABA7FE0-34DC-4D82-9006-5F13FFFB412F" targetElement="_37B15781-0E78-45AF-BFB2-AD56360F0115">
+        <di:waypoint x="200" y="-60" />
         <di:waypoint x="820" y="-220" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
