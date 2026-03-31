@@ -106,4 +106,29 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <inputData name="LoanApplication" id="_2609F265-7C21-47DF-9FF9-9554B660EC0B">
+    <variable name="LoanApplication" id="_5AC06892-2ECA-40EB-B448-31BC46C896CF" typeRef="LoanApplication" />
+  </inputData>
+  <decisionService name="Loan Decision Service" id="_66811A4A-FEA6-40B9-BF3E-83215D7DEBA0">
+    <variable name="Loan Decision Service" id="_32CA53BB-E74B-41E0-98A6-2DAD8D357522" typeRef="LoanOffer" />
+  </decisionService>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_D551E364-5BD5-41CC-B66D-EF11856B0561" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_716BB036-ED7B-451B-87D6-FD6B10873AEE" dmnElementRef="_66811A4A-FEA6-40B9-BF3E-83215D7DEBA0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="0" width="320" height="320" />
+        <dmndi:DMNDecisionServiceDividerLine id="_F24C969E-B4DE-4A18-A88E-A45B90D8C616">
+          <di:waypoint x="500" y="160" />
+          <di:waypoint x="820" y="160" />
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_45DF626B-F811-4D4C-8F19-BAB6FCF97D1D" dmnElementRef="_2609F265-7C21-47DF-9FF9-9554B660EC0B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
