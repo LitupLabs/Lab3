@@ -107,8 +107,8 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="Total Income" id="_E161C8B7-B261-4496-B7B3-068823B6261E">
-    <variable id="_10488F05-EAF7-4C44-9BDD-BDDB28D6EDA4" name="Total Income" typeRef="number" />
+  <decision name="Loan Approval" id="_E161C8B7-B261-4496-B7B3-068823B6261E">
+    <variable id="_10488F05-EAF7-4C44-9BDD-BDDB28D6EDA4" name="Loan Approval" typeRef="boolean" />
     <informationRequirement id="_BD94C7BA-4C8D-4925-97C0-88A049F9F6FD">
       <requiredInput href="#_2609F265-7C21-47DF-9FF9-9554B660EC0B" />
     </informationRequirement>
@@ -121,9 +121,9 @@
     <knowledgeRequirement id="_855A14F0-8D9A-4B63-898C-0D5A8542E05A">
       <requiredKnowledge href="#_66811A4A-FEA6-40B9-BF3E-83215D7DEBA0" />
     </knowledgeRequirement>
-    <literalExpression id="_A812BF6F-6205-4976-9A81-E6388E987FFA" typeRef="number" label="Total Income">
-      <text>LoanApplication.financials.monthlyIncome 
-+ sum(LoanApplication.financials.otherIncomes)</text>
+    <literalExpression id="_A812BF6F-6205-4976-9A81-E6388E987FFA" typeRef="boolean" label="Loan Approval">
+      <text>Risk Category != &quot;HIGH&quot;
+and Financial Eligibility = true</text>
     </literalExpression>
   </decision>
   <decision name="Risk Category" id="_AD0A78AF-9AF0-4939-9E7F-64F4650D310A">
@@ -172,7 +172,7 @@ else 1</text>
     <variable name="LoanApplication" id="_5AC06892-2ECA-40EB-B448-31BC46C896CF" typeRef="LoanApplication" />
   </inputData>
   <decisionService name="Loan Decision Service" id="_66811A4A-FEA6-40B9-BF3E-83215D7DEBA0">
-    <variable name="Loan Decision Service" id="_32CA53BB-E74B-41E0-98A6-2DAD8D357522" typeRef="number" />
+    <variable name="Loan Decision Service" id="_32CA53BB-E74B-41E0-98A6-2DAD8D357522" typeRef="boolean" />
     <outputDecision href="#_E161C8B7-B261-4496-B7B3-068823B6261E" />
     <encapsulatedDecision href="#_AD0A78AF-9AF0-4939-9E7F-64F4650D310A" />
     <encapsulatedDecision href="#_C9F1AEAF-8954-4C32-9F79-224793A2F8E3" />
