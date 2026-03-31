@@ -107,30 +107,30 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Total Income" id="_B6C4C518-709C-40A0-ACC3-8449CD129695">
-    <variable id="_76994FD9-CCDF-4F65-BD0C-2FF0DD2C2198" typeRef="&lt;Undefined&gt;" name="Total Income" />
+    <variable id="_76994FD9-CCDF-4F65-BD0C-2FF0DD2C2198" typeRef="number" name="Total Income" />
     <informationRequirement id="_7974AC57-227D-42F4-B772-F4F62150F421">
       <requiredInput href="#_CC9D7C4B-0DCB-4BF0-87D1-539EC443643D" />
     </informationRequirement>
-    <literalExpression id="_7FBF7AFE-166E-47C2-81A5-B68EAF8C126D" typeRef="&lt;Undefined&gt;" label="Total Income">
+    <literalExpression id="_7FBF7AFE-166E-47C2-81A5-B68EAF8C126D" typeRef="number" label="Total Income">
       <text>LoanApplication.financials.monthlyIncome 
 + sum(LoanApplication.financials.otherIncomes)</text>
     </literalExpression>
   </decision>
   <decision name="EMI Ratio" id="_573535D2-7EF8-401E-8C0C-E3EAF82601A6">
-    <variable name="EMI Ratio" id="_868E4BEE-33E5-4CEE-9A8C-D340E9D81A6B" />
+    <variable name="EMI Ratio" id="_868E4BEE-33E5-4CEE-9A8C-D340E9D81A6B" typeRef="number" />
     <informationRequirement id="_CB78A3E4-3EF7-4091-9C98-3BED2D3A2004">
       <requiredDecision href="#_B6C4C518-709C-40A0-ACC3-8449CD129695" />
     </informationRequirement>
-    <literalExpression id="_F79DF775-5AFA-4A01-A59B-582CABDBDA43" label="EMI Ratio">
+    <literalExpression id="_F79DF775-5AFA-4A01-A59B-582CABDBDA43" typeRef="number" label="EMI Ratio">
       <text>LoanApplication.financials.existingEMIs / Total Income</text>
     </literalExpression>
   </decision>
   <decision name="Eligibility" id="_C7774D4E-EB2C-47AB-BAF1-DCF1E8C8B2ED">
-    <variable name="Eligibility" id="_159DBD2B-DF8B-4C21-A5E7-EF444C14FE5D" />
+    <variable name="Eligibility" id="_159DBD2B-DF8B-4C21-A5E7-EF444C14FE5D" typeRef="boolean" />
     <informationRequirement id="_8B0F962A-0D47-425E-8802-6B1BB1803C58">
       <requiredDecision href="#_573535D2-7EF8-401E-8C0C-E3EAF82601A6" />
     </informationRequirement>
-    <literalExpression id="_6D1650FD-DFD9-4169-9C4D-90FCBB90C722" label="Eligibility">
+    <literalExpression id="_6D1650FD-DFD9-4169-9C4D-90FCBB90C722" typeRef="boolean" label="Eligibility">
       <text>EMI Ratio &lt; 0.4</text>
     </literalExpression>
   </decision>
