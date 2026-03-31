@@ -106,12 +106,12 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="Total Income" id="_B6C4C518-709C-40A0-ACC3-8449CD129695">
-    <variable id="_76994FD9-CCDF-4F65-BD0C-2FF0DD2C2198" typeRef="number" name="Total Income" />
+  <decision name="TotalIncome" id="_B6C4C518-709C-40A0-ACC3-8449CD129695">
+    <variable id="_76994FD9-CCDF-4F65-BD0C-2FF0DD2C2198" typeRef="number" name="TotalIncome" />
     <informationRequirement id="_7974AC57-227D-42F4-B772-F4F62150F421">
       <requiredInput href="#_CC9D7C4B-0DCB-4BF0-87D1-539EC443643D" />
     </informationRequirement>
-    <literalExpression id="_7FBF7AFE-166E-47C2-81A5-B68EAF8C126D" typeRef="number" label="Total Income">
+    <literalExpression id="_7FBF7AFE-166E-47C2-81A5-B68EAF8C126D" typeRef="number" label="TotalIncome">
       <text>LoanApplication.financials.monthlyIncome 
 + sum(LoanApplication.financials.otherIncomes)</text>
     </literalExpression>
@@ -121,8 +121,11 @@
     <informationRequirement id="_CB78A3E4-3EF7-4091-9C98-3BED2D3A2004">
       <requiredDecision href="#_B6C4C518-709C-40A0-ACC3-8449CD129695" />
     </informationRequirement>
+    <informationRequirement id="_6A901B71-FB94-4333-AC4C-E552BA7D2695">
+      <requiredInput href="#_CC9D7C4B-0DCB-4BF0-87D1-539EC443643D" />
+    </informationRequirement>
     <literalExpression id="_F79DF775-5AFA-4A01-A59B-582CABDBDA43" typeRef="number" label="EMI Ratio">
-      <text>LoanApplication.financials.existingEMIs / Total Income</text>
+      <text>LoanApplication.financials.existingEMIs / TotalIncome</text>
     </literalExpression>
   </decision>
   <decision name="Eligibility" id="_C7774D4E-EB2C-47AB-BAF1-DCF1E8C8B2ED">
@@ -175,6 +178,10 @@
       <dmndi:DMNEdge id="_7623CA76-E542-4FC1-B4E8-BB27CFF55629" dmnElementRef="_8B0F962A-0D47-425E-8802-6B1BB1803C58" sourceElement="_5B1E132C-E013-423F-98A7-8C142C115289" targetElement="_BEBBE73F-593C-4467-A32A-249147A990F0">
         <di:waypoint x="600" y="160" />
         <di:waypoint x="460" y="20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E3817F56-8340-4851-B1A0-C51131347050" dmnElementRef="_6A901B71-FB94-4333-AC4C-E552BA7D2695" sourceElement="_16832BF5-2A7D-40DB-B527-D6D5DC7360B0" targetElement="_5B1E132C-E013-423F-98A7-8C142C115289">
+        <di:waypoint x="180" y="340" />
+        <di:waypoint x="600" y="160" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
