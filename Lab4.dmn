@@ -146,24 +146,24 @@ and Financial Eligibility = true</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6">
-    <variable name="Calculate Risk Score" id="_404AEA67-3647-4738-8968-B18EC6AB834C" />
-    <encapsulatedLogic label="Calculate Risk Score" id="_7E401C37-B0C2-4616-A05A-AC18486D54A0" kind="FEEL">
-      <formalParameter id="_1684B8EF-BA30-472F-A873-C51816FCE679" name="loanApplication" typeRef="LoanApplication" />
+    <variable name="Calculate Risk Score" id="_404AEA67-3647-4738-8968-B18EC6AB834C" typeRef="number" />
+    <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_7E401C37-B0C2-4616-A05A-AC18486D54A0" kind="FEEL">
+      <formalParameter id="_1684B8EF-BA30-472F-A873-C51816FCE679" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_42D480A5-07D1-430A-9C83-235347F0B963" label="Return">
-        <text>if loanApplication.customer.creditScore &gt;= 750 then 3
-else if loanApplication.customer.creditScore &gt;= 650 then 2
+        <text>if LoanApplication.customer.creditScore &gt;= 750 then 3
+else if LoanApplication.customer.creditScore &gt;= 650 then 2
 else 1</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Calculate Financial Strength" id="_CE0868EE-6A49-4CA3-A284-2B7F4F83BB35">
-    <variable name="Calculate Financial Strength" id="_BDD50E95-04BF-49E8-88A6-BCE299BD4FE5" />
-    <encapsulatedLogic label="Calculate Financial Strength" id="_CFEAEA86-DAC2-495A-865E-22583531D662" kind="FEEL">
-      <formalParameter id="_B0250541-F970-4AFA-93A9-584D9C235628" name="financials" typeRef="Financials" />
+    <variable name="Calculate Financial Strength" id="_BDD50E95-04BF-49E8-88A6-BCE299BD4FE5" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financial Strength" typeRef="number" id="_CFEAEA86-DAC2-495A-865E-22583531D662" kind="FEEL">
+      <formalParameter id="_B0250541-F970-4AFA-93A9-584D9C235628" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_AF40519B-216D-44E3-8192-D5E6083E7A9D" label="Return">
-        <text>financials.monthlyIncome 
-+ sum(financials.otherIncomes) 
-- financials.existingEMIs</text>
+        <text>LoanApplication.financials.monthlyIncome 
++ sum(LoanApplication.financials.otherIncomes) 
+- LoanApplication.financials.existingEMIs</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
