@@ -117,6 +117,17 @@ else 1</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Strength" id="_CE0868EE-6A49-4CA3-A284-2B7F4F83BB35">
+    <variable name="Calculate Financial Strength" id="_BDD50E95-04BF-49E8-88A6-BCE299BD4FE5" />
+    <encapsulatedLogic label="Calculate Financial Strength" id="_CFEAEA86-DAC2-495A-865E-22583531D662" kind="FEEL">
+      <formalParameter id="_B0250541-F970-4AFA-93A9-584D9C235628" name="financials" typeRef="Financials" />
+      <literalExpression id="_AF40519B-216D-44E3-8192-D5E6083E7A9D" label="Return">
+        <text>financials.monthlyIncome 
++ sum(financials.otherIncomes) 
+- financials.existingEMIs</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_98559022-D7B7-4E9D-88D5-72A57B296FB4">
     <variable name="LoanApplication" id="_A41F919A-AD0C-461F-9340-295FD920F158" typeRef="LoanApplication" />
   </inputData>
@@ -127,6 +138,9 @@ else 1</text>
           <kie:ComponentWidths dmnElementRef="_42D480A5-07D1-430A-9C83-235347F0B963">
             <kie:width>832</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AF40519B-216D-44E3-8192-D5E6083E7A9D">
+            <kie:width>857</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3F547288-94AF-4BAB-BAEB-C7C6D4D37EF6" dmnElementRef="_89CEDB34-A53C-46FD-B7BD-67EC68A69DD6" isCollapsed="false" isListedInputData="false">
@@ -134,6 +148,9 @@ else 1</text>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_7ABA7FE0-34DC-4D82-9006-5F13FFFB412F" dmnElementRef="_98559022-D7B7-4E9D-88D5-72A57B296FB4" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="120" y="-100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_ED0DB53E-CC4A-4BE6-A91A-C1CF1F7BEC9F" dmnElementRef="_CE0868EE-6A49-4CA3-A284-2B7F4F83BB35" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="560" y="-40" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
