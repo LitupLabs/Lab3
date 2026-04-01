@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_B4287BB4-E178-4C59-94B7-E836F555525B" id="_FF6CEAC5-79BB-49A0-A3F3-379663F314F4" name="DMN_F5656A86-A46C-4263-8593-8D8B966727BE">
+  <itemDefinition id="_CFD89D48-046A-4D5E-85F5-9BA3FF007DBB" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>string</typeRef>
+  </itemDefinition>
   <itemDefinition id="_6D92AE1A-2CC2-4B77-BDFD-112EF94E5388" name="LoanOffer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_72596B34-72B0-4310-B367-3992A9313CD3" name="decision" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
@@ -147,11 +150,11 @@
     </literalExpression>
   </decision>
   <decision name="Risk Category" id="_9BC3F428-FF7C-4C7D-A717-02F32F03D962">
-    <variable name="Risk Category" id="_1F866B6B-C748-4A3A-921C-68FF40E01A1D" typeRef="string" />
+    <variable name="Risk Category" id="_1F866B6B-C748-4A3A-921C-68FF40E01A1D" typeRef="RiskCategory" />
     <informationRequirement id="_CD3A3BC6-68BE-40A0-841D-7B828DCFEE1A">
       <requiredDecision href="#_573535D2-7EF8-401E-8C0C-E3EAF82601A6" />
     </informationRequirement>
-    <decisionTable id="_F4C64702-809E-415E-A317-94AA5E7B313E" typeRef="string" hitPolicy="UNIQUE" label="Risk Category">
+    <decisionTable id="_F4C64702-809E-415E-A317-94AA5E7B313E" typeRef="RiskCategory" hitPolicy="OUTPUT ORDER" label="Risk Category">
       <input id="_E87B909B-9C00-4417-AA4E-AD9384156BDA">
         <inputExpression id="_02EC7909-B1A7-45D7-BABA-8C6A6F07C55F" typeRef="number">
           <text>EMI Ratio</text>
@@ -183,7 +186,7 @@
       </rule>
       <rule id="_D52169DF-17C1-4922-8F83-6EF2911C6246">
         <inputEntry id="_328BA6EE-D743-488E-A25A-AC026506DD07">
-          <text>&gt;.5</text>
+          <text>&gt;=.4</text>
         </inputEntry>
         <outputEntry id="_3022FB68-7C61-4167-8064-48B6C9A6787B">
           <text>&quot;HIGH&quot;</text>
