@@ -151,11 +151,48 @@
     <informationRequirement id="_CD3A3BC6-68BE-40A0-841D-7B828DCFEE1A">
       <requiredDecision href="#_573535D2-7EF8-401E-8C0C-E3EAF82601A6" />
     </informationRequirement>
-    <literalExpression id="_202EA53C-AF62-486D-A0A0-EBD84A8519FA" typeRef="string" label="Risk Category">
-      <text>if EMI Ratio &lt; 0.3 then &quot;LOW&quot;
-else if EMI Ratio &lt; 0.5 then &quot;MEDIUM&quot;
-else &quot;HIGH&quot;</text>
-    </literalExpression>
+    <decisionTable id="_F4C64702-809E-415E-A317-94AA5E7B313E" typeRef="string" hitPolicy="UNIQUE" label="Risk Category">
+      <input id="_E87B909B-9C00-4417-AA4E-AD9384156BDA">
+        <inputExpression id="_02EC7909-B1A7-45D7-BABA-8C6A6F07C55F" typeRef="number">
+          <text>EMI Ratio</text>
+        </inputExpression>
+      </input>
+      <output id="_6827F117-E6B5-444F-BB3C-1F064DE46601" />
+      <annotation name="Annotations" />
+      <rule id="_FFF724FA-BC62-4335-A8E6-6B8D9780FCD0">
+        <inputEntry id="_533885B9-880A-4211-B06D-29FD3E561CF2">
+          <text>&lt; .3</text>
+        </inputEntry>
+        <outputEntry id="_D3897AB7-29D7-449D-9ED8-41BB7E22203E">
+          <text>&quot;LOW&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_A2A4E341-07B9-4483-A198-DD6118F241C1">
+        <inputEntry id="_4777CDA8-CDCB-4175-BAA1-2BCFAD23F6C6">
+          <text>[.3,.5]</text>
+        </inputEntry>
+        <outputEntry id="_ECF3572E-147C-4B08-8090-BCE12D99BAA2">
+          <text>&quot;MEDIUM&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_D52169DF-17C1-4922-8F83-6EF2911C6246">
+        <inputEntry id="_328BA6EE-D743-488E-A25A-AC026506DD07">
+          <text>&gt;.5</text>
+        </inputEntry>
+        <outputEntry id="_3022FB68-7C61-4167-8064-48B6C9A6787B">
+          <text>&quot;HIGH&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <inputData name="LoanApplication" id="_CC9D7C4B-0DCB-4BF0-87D1-539EC443643D">
     <variable name="LoanApplication" id="_D69A15F8-9D2C-4F0E-91A8-13467FA91724" typeRef="LoanApplication" />
@@ -176,8 +213,11 @@ else &quot;HIGH&quot;</text>
           <kie:ComponentWidths dmnElementRef="_06679BF8-E500-469B-B5C7-D3BEC509EF24">
             <kie:width>518</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_202EA53C-AF62-486D-A0A0-EBD84A8519FA">
-            <kie:width>608</kie:width>
+          <kie:ComponentWidths dmnElementRef="_F4C64702-809E-415E-A317-94AA5E7B313E">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
