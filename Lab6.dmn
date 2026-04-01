@@ -172,7 +172,7 @@
       </rule>
       <rule id="_A2A4E341-07B9-4483-A198-DD6118F241C1">
         <inputEntry id="_4777CDA8-CDCB-4175-BAA1-2BCFAD23F6C6">
-          <text>[.3,.5]</text>
+          <text>[.3 .. .5]</text>
         </inputEntry>
         <outputEntry id="_ECF3572E-147C-4B08-8090-BCE12D99BAA2">
           <text>&quot;MEDIUM&quot;</text>
@@ -215,7 +215,7 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_F4C64702-809E-415E-A317-94AA5E7B313E">
             <kie:width>60</kie:width>
-            <kie:width>118</kie:width>
+            <kie:width>215</kie:width>
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
