@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_B5DE661E-4151-4736-A16F-3C86B98FCA10" id="_7846BAFB-33B9-42CE-BA14-A5331E37F11F" name="DMN_7FCEF48F-F82F-43AE-AEE1-C85CAA1716FB" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_CC92E639-B869-4309-B239-5DF9F3A62091" name="ValidReasons" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>string</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_623F81BC-762A-430B-A77A-DEAE9A816884" name="ApplicantData" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_33A7B636-EA50-42A2-B02B-41EC646E5242" name="aadhar" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Aadhar</typeRef>
+    </itemComponent>
+    <itemComponent id="_543CA2CC-992A-4E4E-91E1-D1E4C4D6B404" name="pan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>PAN</typeRef>
+    </itemComponent>
+    <itemComponent id="_8FC52269-C1B6-4A0B-89A2-B94B6D2DBB4B" name="driverLicense" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>DriverLicense</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_D2D8C3D7-4107-4FF6-8814-A232E9775B3E" name="DriverLicense" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_AAD3F6D3-8AA6-4FFC-9B05-EBBA0A7E557B" name="dob" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_AB43ABDD-7B26-4F13-A7E4-9C76050F110D" name="address" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_40D32C99-8837-46D6-8D8B-C21A06E81581" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_C91D9AAE-5F2D-4BA6-B706-D8EBCAF0FE5D" name="PAN" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_AE8341E3-1FF3-467C-9003-9C2761B908A8" name="fatherName" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_51AB66C3-4EB0-428C-BE0C-08C783A47D01" name="dob" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_9BAAFDB8-9647-405C-9951-C30D09E42C46" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_E63F4BEC-318D-48A8-8E55-5723C3A2C749" name="Aadhar" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E19D9B01-E7C6-4454-A0BB-E7F9443F6641" name="dob" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_6E0B9E61-2572-4571-8DF5-6A63079A3633" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Validation" id="_ECA3B255-20DD-412D-A1A8-88E9979E516B">
+    <variable id="_8F35FD71-CEDD-4BB5-839A-560DEF698F46" typeRef="ValidReasons" name="Validation" />
+    <informationRequirement id="_7BA9CB33-950E-4D0D-9156-B660AB90532B">
+      <requiredInput href="#_469C63FF-E42C-4E71-AF0D-B3260A686CCC" />
+    </informationRequirement>
+    <decisionTable id="_B8E560DD-BB8B-40D9-A7F8-5B4696C2C6A9" typeRef="ValidReasons" hitPolicy="UNIQUE" label="Validation">
+      <input id="_BA773BDC-BBE8-4CA2-829F-4AB16FBD9573">
+        <inputExpression id="_1E074AA9-7C0A-48E4-BB09-29A30E833807" typeRef="string">
+          <text>ApplicantData.aadhar.name</text>
+        </inputExpression>
+      </input>
+      <input id="_0C5C73E7-AC7F-476D-8EA6-D38B5AA00502">
+        <inputExpression id="_960E4A41-8808-427F-B78B-90D53CF92D24" typeRef="PAN">
+          <text>ApplicantData.pan</text>
+        </inputExpression>
+      </input>
+      <input id="_EA43720D-105D-49C7-A0EC-D93E839D4D21">
+        <inputExpression id="_CC392B87-8210-45B2-A9E9-464DDB9D455A" typeRef="DriverLicense">
+          <text>ApplicantData.driverLicense</text>
+        </inputExpression>
+      </input>
+      <output id="_9024AAAE-6837-4227-A2E2-F9FA632D7921" typeRef="ValidReasons" />
+      <annotation name="Annotations" />
+      <rule id="_46EAAC87-5890-4637-83C2-80CE63414E67">
+        <inputEntry id="_91AB5CFE-58D6-4C18-BB36-2F47CC6EF8E7">
+          <text>= nsdl.name</text>
+        </inputEntry>
+        <inputEntry id="_49CFFA33-1644-41CB-A0CE-CD9FD6247FAE">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_64762712-5FE5-4BB2-98DF-A3D8B6A03816">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_EFAE0A2A-1CE1-4E46-98E3-212EE7B265E1">
+          <text>&quot;valid&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_D30C311E-F504-47F5-BE39-3FACCBDC2624">
+        <inputEntry id="_90997017-0BFF-40D0-9FE3-D41F7E1AAB1A">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_1647ED16-4779-4D6A-B5FC-863575C4D84B">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_E8F56618-6C02-47DE-A424-A93A26A5D88B">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_E3A3B47D-F96F-4CD7-9173-2F1C338FB2EB">
+          <text>&quot;valid&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_46521145-AD49-4706-BFEC-80C9FF8C2DED">
+        <inputEntry id="_B58D14DA-4829-40F1-8B76-71D24CEEFF4D">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_D458D9FD-65CF-4E95-9B06-913478839C54">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_4E0BD642-A0ED-4946-A3EC-7A6A4F03841F">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_BFB80649-CF2A-484F-BA93-A7ACFC8CDE70">
+          <text>&quot;NSDL aadhar name didn&apos;t match with name givey by applicant in the application form&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_96B9D52E-5BF3-4734-AD40-F49FA83AEF6B">
+        <inputEntry id="_87EA221D-611C-43D0-99DB-92D2CE9AC20B">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_7634BF9E-0DA5-4D8C-8F3A-91705E90E3FD">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_BD5DB22B-22B3-4298-A105-E54BE537C4E7">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_6A1BCF34-9408-4F19-9074-D272B2DF437F">
+          <text>&quot;&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData name="ApplicantData" id="_469C63FF-E42C-4E71-AF0D-B3260A686CCC">
+    <variable name="ApplicantData" id="_DF645386-DB3A-4A73-94AD-D4F3633F3F8A" typeRef="ApplicantData" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_5CD8F2C1-D1F2-4A26-BACE-0AA332D6826C" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B8E560DD-BB8B-40D9-A7F8-5B4696C2C6A9">
+            <kie:width>60</kie:width>
+            <kie:width>314</kie:width>
+            <kie:width>256</kie:width>
+            <kie:width>185</kie:width>
+            <kie:width>222</kie:width>
+            <kie:width>400</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_291E2555-A8C1-4FF1-899F-F3859345764C" dmnElementRef="_469C63FF-E42C-4E71-AF0D-B3260A686CCC" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="300" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_E0B0AC97-46B2-40D8-8FD4-94FEDF9E51BA" dmnElementRef="_ECA3B255-20DD-412D-A1A8-88E9979E516B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_60D19134-BB65-45B5-9A46-249BC30EC4B3-AUTO-TARGET" dmnElementRef="_7BA9CB33-950E-4D0D-9156-B660AB90532B" sourceElement="_291E2555-A8C1-4FF1-899F-F3859345764C" targetElement="_E0B0AC97-46B2-40D8-8FD4-94FEDF9E51BA">
+        <di:waypoint x="180" y="340" />
+        <di:waypoint x="180" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
