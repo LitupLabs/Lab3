@@ -183,7 +183,7 @@ return {
     </literalExpression>
   </decision>
   <decision name="Final Cost Per Vendor" id="_EDB6C68B-AC7D-4768-BD88-F35D38EA170E">
-    <variable name="Final Cost Per Vendor" id="_F593B462-14F1-449A-B625-2B2108744DB8" typeRef="VendorList" />
+    <variable name="Final Cost Per Vendor" id="_F593B462-14F1-449A-B625-2B2108744DB8" typeRef="ScoredVendor" />
     <informationRequirement id="_620DCB06-85E6-41C7-97DD-E218D3335F34">
       <requiredDecision href="#_F20FC301-EBC6-48DF-9B80-818231144130" />
     </informationRequirement>
@@ -193,7 +193,7 @@ return {
     <knowledgeRequirement id="_E9658F33-9B3F-4861-9A8F-F72D6FF1F9C6">
       <requiredKnowledge href="#_4C4C89FA-3D1F-4DC5-8313-77B494E4D1EA" />
     </knowledgeRequirement>
-    <literalExpression id="_2F3F3961-E962-4DD0-A1AA-A0643A9298AC" typeRef="VendorList" label="Final Cost Per Vendor">
+    <literalExpression id="_2F3F3961-E962-4DD0-A1AA-A0643A9298AC" typeRef="ScoredVendor" label="Final Cost Per Vendor">
       <text>for v in Best Vendor
 return {
   vendorId: v.vendorId,
