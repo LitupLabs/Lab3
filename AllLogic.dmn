@@ -29,6 +29,9 @@
     <typeRef>ScoredVendor</typeRef>
   </itemDefinition>
   <itemDefinition id="_846D03DF-333C-4240-A9E5-C55171C25F09" name="ScoredVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_37E78883-2067-45CD-B865-975AB17F92E6" name="basePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_51EE4AA6-2B8C-4DB6-B0D3-D666FBDB12EB" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
@@ -169,7 +172,8 @@
       <text>for v in Eligible Vendors
 return {
   vendorId: v.vendorId,
-  score: Calculate Vendor Score(v)
+  score: Calculate Vendor Score(v), 
+  basePriceFactor: v.basePriceFactor
 }</text>
     </literalExpression>
   </decision>
@@ -197,7 +201,8 @@ return {
       <text>for v in Best Vendor
 return {
   vendorId: v.vendorId,
-  finalCost: Calculate Final Cost(v, Total Procurement Cost)
+  score: Calculate Final Cost(v, Total Procurement Cost),
+  basePriceFactor: v.basePriceFactor
 }</text>
     </literalExpression>
   </decision>
@@ -267,7 +272,7 @@ return {
   <businessKnowledgeModel name="Calculate Final Cost" id="_4C4C89FA-3D1F-4DC5-8313-77B494E4D1EA">
     <variable name="Calculate Final Cost" id="_4C8F7318-BFC4-451E-90A0-751EFDD08A7F" typeRef="number" />
     <encapsulatedLogic label="Calculate Final Cost" typeRef="number" id="_3BADE807-376A-40A3-82D4-A757A025E5A4" kind="FEEL">
-      <formalParameter id="_ED7D458F-2C38-4019-8A78-D7AAD90AC46D" name="vendor" typeRef="Vendor" />
+      <formalParameter id="_ED7D458F-2C38-4019-8A78-D7AAD90AC46D" name="vendor" typeRef="ScoredVendor" />
       <formalParameter id="_EE95A978-5C03-4889-8836-B6FCEE0F9584" name="totalCost" typeRef="number" />
       <literalExpression id="_F4B4B8CC-D1E9-4D62-B2C5-DC30C70814E1" typeRef="number" label="Return">
         <text>totalCost * vendor.basePriceFactor</text>
