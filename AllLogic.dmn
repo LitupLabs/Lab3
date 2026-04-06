@@ -208,6 +208,10 @@
     <encapsulatedLogic label="Is Vendor Eligible" typeRef="boolean" id="_B29E9BCD-8349-4887-95FE-B15FD822F326" kind="FEEL">
       <formalParameter id="_CED0992D-02C4-41BD-A187-CD09A1F68F36" name="vendor" typeRef="Vendor" />
       <formalParameter id="_3B833ADE-21F1-44CF-8613-39E0122C0091" name="policies" typeRef="Policies" />
+      <literalExpression id="_A04F60ED-1992-435D-B043-4DFFEA8FEB66" typeRef="boolean" label="Return">
+        <text>vendor.complianceScore &gt;= policies.minComplianceScore
+  and vendor.deliveryDays &lt;= policies.maxDeliveryDays</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Calculate Vendor Score" id="_36F05CFB-09DF-45A6-90A0-5A9534A7870A">
@@ -240,6 +244,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CA3865FF-E05E-41D0-B32F-B8675B7795F5">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A04F60ED-1992-435D-B043-4DFFEA8FEB66">
+            <kie:width>774</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
