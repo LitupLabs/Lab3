@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8930E52C-F059-4714-B3B0-0BC43C6F0CCF" id="_2F9953F8-AFDC-4DC4-8DAB-FFFF9A869971" name="DMN_066EB0AA-FC7F-4A58-BA06-F0E92B0F4CEE" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_1A6797E7-5D4B-47E6-8CDE-1509A459D7DD" name="Amount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_0682A866-0A6B-4F5A-B357-5BA31F7207AD" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_47D6D5E1-9258-4484-8B7C-D8CCF85E352D" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_D0194B0F-2954-4DCA-9F8F-B5F6A576E085" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCostList</typeRef>
+    </itemComponent>
+    <itemComponent id="_8321123F-A6C3-4D3B-8A59-9D8A0239ED2C" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoredVendorList</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_7570116D-CB7A-437F-8CEB-8285B589C92A" name="FinalCostList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_285F05B4-A6A2-429B-A07A-633A141311B5" name="finalCost" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCost</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_AEF51EF3-D47C-427D-8C17-17E39C8B00D5" name="FinalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_54D07812-FAE4-4CFB-A215-04024133B87B" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_EE7815B1-D126-4259-B430-52259588FBF7" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_281FDB52-CC75-459D-B93B-FDAC12C7E490" name="ScoredVendorList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_3F529838-0FA7-4130-A0C4-818FA21081B1" name="vendor" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Vendor</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_846D03DF-333C-4240-A9E5-C55171C25F09" name="ScoredVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_51EE4AA6-2B8C-4DB6-B0D3-D666FBDB12EB" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_B631AB20-A82A-4311-A432-FDDF528F65C7" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_3B160C73-3406-423E-8D87-3ED3300B55F0" name="Policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_349E6CBA-E4E6-4DB3-860E-82725BD1533E" name="approvalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_085A1AB0-05F3-49DE-9ED8-F61FF3FBA3FF" name="minComplianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_A7FA940F-EE8B-46E1-BF10-2068208B7CD1" name="maxDeliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_7AF5BFC1-8A45-4426-893B-85BF371D3B8D" name="VendorList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D45A0E14-A4B2-48BA-9031-73C68BC7EC76" name="vendor" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Vendor</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_5171CFE0-8AF0-4704-9C29-A9A275A1994C" name="Vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_02F2B587-CC68-4DD5-9286-143FA3880113" name="basePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_6C6933C2-235A-45F9-8E47-92FB584FE4EB" name="complianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_076EC313-C3CB-470A-9FA2-354AAE429096" name="location" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_3DED2660-4C8D-4AAA-9F00-BE3BC5C70BAA" name="rating" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_D89C3462-2548-4FD9-906A-09AB189DABDF" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_36CCD60F-AEB9-4E71-871F-598505176609" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D36861E4-8BFC-4EF4-82F1-61D449E7EE73" name="items" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ItemList</typeRef>
+    </itemComponent>
+    <itemComponent id="_BA51BE66-C532-45AF-9976-8075B837C537" name="totalAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_EFEB1CE2-56F4-42C1-825D-8453E89868CF" name="department" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_8B66E587-CEDD-4DDD-8D3D-CE414775A75C" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_4DC0F398-3F27-4245-8C3C-78E8BDB491E3" name="ItemList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_ACBC0E7A-CD14-4AAE-95E4-C6C77C7FA42E" name="item" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Item</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_9DA415F7-144B-46D7-A723-05AC24EC8975" name="Item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_00A7D52E-F638-467D-AA76-FB2CB00988A5" name="unitPrice" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_6021A6BF-A8C4-4160-9A47-F2D2525D088A" name="quantity" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_B1529D02-636E-40D3-AAF7-646A36165410" name="category" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_6445B3F3-CD2B-4A94-B8F6-DA305246AAE8" name="itemId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Item Totals" id="_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8">
+    <variable name="Item Totals" id="_15638817-C41C-4CB9-B721-63CD2DE2E8C3" typeRef="Amount" />
+    <informationRequirement id="_8A99BB74-3C4C-4139-A646-589A3B2D9440">
+      <requiredInput href="#_319D80D7-A8E9-4F9D-9531-48A0971F136B" />
+    </informationRequirement>
+    <knowledgeRequirement id="_55ED0D31-6C4A-4AEB-979E-52C34168B13C">
+      <requiredKnowledge href="#_64F349BF-0EC7-4CAF-8CE1-83C045688CD1" />
+    </knowledgeRequirement>
+    <for id="_4379EDEA-9EBC-42D9-ABDE-28A9151FD004" typeRef="Amount" label="Item Totals" iteratorVariable="i">
+      <in id="_24F100D0-1372-4EED-A48D-494EB4C574E0">
+        <literalExpression id="_8CD5357B-93C8-4D9E-8323-A86B0CF7268B" label="Expression Name">
+          <text>PurchaseRequest.items</text>
+        </literalExpression>
+      </in>
+      <return id="_834FD7B3-A371-46FD-AFB5-6B8DB5DF444B">
+        <literalExpression id="_DFF6544A-D0E5-4712-B363-1DD06E967DEA" label="Expression Name">
+          <text>Calculate Item Total()</text>
+        </literalExpression>
+      </return>
+    </for>
+  </decision>
+  <decision name="Total Procurement Cost" id="_0CCD6F61-9D33-48F0-8150-F1664E67F9C6">
+    <variable name="Total Procurement Cost" id="_3F78B6DD-5AA1-43AA-91AB-FCC2069A10A2" />
+    <informationRequirement id="_962A5DBF-AA57-4656-B994-AA0A476517AE">
+      <requiredDecision href="#_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8" />
+    </informationRequirement>
+  </decision>
+  <decision name="Eligible Vendors" id="_74AEE765-B589-4553-B442-EC7CA06DC64F">
+    <variable name="Eligible Vendors" id="_B591E614-1D22-4E46-99FD-8072ED63FC2C" />
+    <informationRequirement id="_330960B7-567F-48FE-BA74-9A0D48DAD687">
+      <requiredInput href="#_8C6B02FC-9824-4617-AF03-711A3C423C21" />
+    </informationRequirement>
+    <informationRequirement id="_BB515FEF-E1F0-42DA-9B40-BB04C78E08C1">
+      <requiredInput href="#_29BA6489-5818-40AA-851D-B7412EE15494" />
+    </informationRequirement>
+    <knowledgeRequirement id="_11B5DA33-5E10-4C30-818A-AC0F454F91D7">
+      <requiredKnowledge href="#_3FF79A86-3180-4D92-8815-C28E6BC426DE" />
+    </knowledgeRequirement>
+  </decision>
+  <decision name="Scored Vendors" id="_BCC49480-AB19-486F-967D-9BF4E7B714BF">
+    <variable name="Scored Vendors" id="_B1D6578E-9295-462F-84C4-04292A70B06E" />
+    <informationRequirement id="_FA0FDAA2-DA41-4C95-99F4-E099827AC37F">
+      <requiredDecision href="#_74AEE765-B589-4553-B442-EC7CA06DC64F" />
+    </informationRequirement>
+    <knowledgeRequirement id="_038088B6-8892-490B-AA3E-B5EBA1898263">
+      <requiredKnowledge href="#_36F05CFB-09DF-45A6-90A0-5A9534A7870A" />
+    </knowledgeRequirement>
+  </decision>
+  <decision name="Best Vendor" id="_4DF422E8-2BE7-4CF5-8692-BBFF1AF42771">
+    <variable name="Best Vendor" id="_57130A24-EF8D-428A-AE3A-E3E4FE4D14C2" />
+    <informationRequirement id="_45910EF0-D830-4CAA-B6FC-287D3D60902C">
+      <requiredDecision href="#_BCC49480-AB19-486F-967D-9BF4E7B714BF" />
+    </informationRequirement>
+  </decision>
+  <decision name="Final Cost Per Vendor" id="_877BFCE7-6392-444A-B9B2-29F892239AE3">
+    <variable name="Final Cost Per Vendor" id="_D6001F30-3A24-4E76-B420-7C731A0F98E2" />
+    <informationRequirement id="_8E7DD2AF-170D-4CFF-BCDA-7D314E7D6FC4">
+      <requiredDecision href="#_0CCD6F61-9D33-48F0-8150-F1664E67F9C6" />
+    </informationRequirement>
+    <informationRequirement id="_0F5CF674-7D8A-4844-93E8-2D31C7D27D33">
+      <requiredDecision href="#_4DF422E8-2BE7-4CF5-8692-BBFF1AF42771" />
+    </informationRequirement>
+    <knowledgeRequirement id="_A2F56B67-5300-49F7-8FE3-7306B328168F">
+      <requiredKnowledge href="#_5C7805BD-FDD8-4D8D-97D1-6AB67F4C3ED0" />
+    </knowledgeRequirement>
+  </decision>
+  <decision name="Approval Required" id="_0B167B6C-3188-43D8-9946-CCC0E9FF1E4A">
+    <variable name="Approval Required" id="_D0A80EEC-F048-4C58-AD2A-6516DC9DC8E6" />
+    <informationRequirement id="_2C338063-1B46-42C4-A2A3-1E056343225D">
+      <requiredDecision href="#_0CCD6F61-9D33-48F0-8150-F1664E67F9C6" />
+    </informationRequirement>
+    <informationRequirement id="_3E11D9BC-EC25-45CE-9023-18B820FCEADC">
+      <requiredInput href="#_29BA6489-5818-40AA-851D-B7412EE15494" />
+    </informationRequirement>
+  </decision>
+  <decision name="Final Recommendation" id="_44437D55-2C3C-4087-8254-FEC2DAED1F56">
+    <variable name="Final Recommendation" id="_38886493-187A-4EDD-A39D-93F79A55535A" />
+    <informationRequirement id="_D5A38335-DAAD-4DE8-A4DC-A5338C3722D8">
+      <requiredDecision href="#_4DF422E8-2BE7-4CF5-8692-BBFF1AF42771" />
+    </informationRequirement>
+    <informationRequirement id="_A6408F1E-042C-499A-9EBE-60DFFD3447EE">
+      <requiredDecision href="#_877BFCE7-6392-444A-B9B2-29F892239AE3" />
+    </informationRequirement>
+    <informationRequirement id="_5A177383-6EB1-4E21-B97A-D490A1B8A3D7">
+      <requiredDecision href="#_0B167B6C-3188-43D8-9946-CCC0E9FF1E4A" />
+    </informationRequirement>
+  </decision>
+  <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
+    <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" />
+    <encapsulatedLogic id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL" label="Calculate Item Total">
+      <formalParameter id="_1440A952-7A71-4471-9406-9CD036F18A6D" name="p-1" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="Is Vendor Eligible" id="_3FF79A86-3180-4D92-8815-C28E6BC426DE">
+    <variable name="Is Vendor Eligible" id="_85114F76-5FE6-4C0D-87B0-16FB64F27B77" />
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Vendor Score" id="_36F05CFB-09DF-45A6-90A0-5A9534A7870A">
+    <variable name="Calculate Vendor Score" id="_73767B46-B025-4607-976F-14BF8997594F" />
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Final Cost" id="_5C7805BD-FDD8-4D8D-97D1-6AB67F4C3ED0">
+    <variable name="Calculate Final Cost" id="_13497B3C-5405-40BC-933E-BADD1A21AEB0" />
+  </businessKnowledgeModel>
+  <inputData name="PurchaseRequest" id="_319D80D7-A8E9-4F9D-9531-48A0971F136B">
+    <variable name="PurchaseRequest" id="_2C5A852F-F913-4C03-A63A-F17C36EAD312" typeRef="PurchaseRequest" />
+  </inputData>
+  <inputData name="Vendors" id="_8C6B02FC-9824-4617-AF03-711A3C423C21">
+    <variable name="Vendors" id="_EF24F26D-FA0E-4B83-B251-4732381C5158" typeRef="VendorList" />
+  </inputData>
+  <inputData name="Policies" id="_29BA6489-5818-40AA-851D-B7412EE15494">
+    <variable name="Policies" id="_630B3DB1-578A-4DAF-9D7A-1549D574CABB" typeRef="Policies" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_7BE8D4A2-D733-41F9-A9EE-2E4F65BA7F52" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_8CD5357B-93C8-4D9E-8323-A86B0CF7268B">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DFF6544A-D0E5-4712-B363-1DD06E967DEA">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="560" y="340" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_5AF5FAFC-188C-406C-A10E-28B74856131D" dmnElementRef="_8C6B02FC-9824-4617-AF03-711A3C423C21" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="880" y="340" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6A7DEFD4-3B4B-482E-93C2-CC7AEB8DDC54" dmnElementRef="_29BA6489-5818-40AA-851D-B7412EE15494" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1240" y="320" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD" dmnElementRef="_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="580" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" dmnElementRef="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB" dmnElementRef="_0CCD6F61-9D33-48F0-8150-F1664E67F9C6" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="980" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6C0250A3-E608-48CE-B770-DB0372DED014" dmnElementRef="_74AEE765-B589-4553-B442-EC7CA06DC64F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1200" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_971972F6-04A4-46B2-8874-F37071A21245" dmnElementRef="_3FF79A86-3180-4D92-8815-C28E6BC426DE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1640" y="280" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_87C6D4E2-C9D6-43FA-8491-E4FA9CC7359B" dmnElementRef="_BCC49480-AB19-486F-967D-9BF4E7B714BF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1460" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DA815A3F-EFAD-4877-A004-2F3D6A1BC55A" dmnElementRef="_36F05CFB-09DF-45A6-90A0-5A9534A7870A" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1720" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_E7B5CCAB-6681-4EAA-99E4-52D4DC3E14C9" dmnElementRef="_4DF422E8-2BE7-4CF5-8692-BBFF1AF42771" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1200" y="-40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_AB6D4282-0FDD-4995-9961-1110D8F3F17A" dmnElementRef="_877BFCE7-6392-444A-B9B2-29F892239AE3" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1020" y="-180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_F74CC03E-55C7-4290-97D2-481DE4EF257C" dmnElementRef="_5C7805BD-FDD8-4D8D-97D1-6AB67F4C3ED0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="820" y="-40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DDB5E088-BC9F-4A8D-9581-D62DBF45CA81" dmnElementRef="_0B167B6C-3188-43D8-9946-CCC0E9FF1E4A" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="600" y="-60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B6A94D1F-3569-40AE-8FE0-930C6314834C" dmnElementRef="_44437D55-2C3C-4087-8254-FEC2DAED1F56" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="780" y="-200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
+        <di:waypoint x="180" y="180" />
+        <di:waypoint x="660" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_35383880-9A33-4875-9A5D-7E2C90B33CE8" dmnElementRef="_8A99BB74-3C4C-4139-A646-589A3B2D9440" sourceElement="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
+        <di:waypoint x="640" y="380" />
+        <di:waypoint x="660" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_BE745B41-8210-4489-A9B2-364FE7FE8CD4" dmnElementRef="_962A5DBF-AA57-4656-B994-AA0A476517AE" sourceElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD" targetElement="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB">
+        <di:waypoint x="660" y="160" />
+        <di:waypoint x="1060" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_08262C1F-B4FD-4E0B-8D87-F292042F766A" dmnElementRef="_330960B7-567F-48FE-BA74-9A0D48DAD687" sourceElement="_5AF5FAFC-188C-406C-A10E-28B74856131D" targetElement="_6C0250A3-E608-48CE-B770-DB0372DED014">
+        <di:waypoint x="960" y="380" />
+        <di:waypoint x="1280" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A7233436-6AA5-45DD-9434-877504C60B52" dmnElementRef="_BB515FEF-E1F0-42DA-9B40-BB04C78E08C1" sourceElement="_6A7DEFD4-3B4B-482E-93C2-CC7AEB8DDC54" targetElement="_6C0250A3-E608-48CE-B770-DB0372DED014">
+        <di:waypoint x="1320" y="360" />
+        <di:waypoint x="1280" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E557FF9C-88F6-4B37-A5A7-E39DF7D71B0E" dmnElementRef="_11B5DA33-5E10-4C30-818A-AC0F454F91D7" sourceElement="_971972F6-04A4-46B2-8874-F37071A21245" targetElement="_6C0250A3-E608-48CE-B770-DB0372DED014">
+        <di:waypoint x="1720" y="320" />
+        <di:waypoint x="1280" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_AFDCCA30-0AD9-49D4-AEAE-052C071D1742" dmnElementRef="_038088B6-8892-490B-AA3E-B5EBA1898263" sourceElement="_DA815A3F-EFAD-4877-A004-2F3D6A1BC55A" targetElement="_87C6D4E2-C9D6-43FA-8491-E4FA9CC7359B">
+        <di:waypoint x="1800" y="160" />
+        <di:waypoint x="1540" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_0271BE0F-3CCB-4D06-8E9D-57835674A48A" dmnElementRef="_FA0FDAA2-DA41-4C95-99F4-E099827AC37F" sourceElement="_6C0250A3-E608-48CE-B770-DB0372DED014" targetElement="_87C6D4E2-C9D6-43FA-8491-E4FA9CC7359B">
+        <di:waypoint x="1280" y="140" />
+        <di:waypoint x="1540" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_49A585FC-C7BB-4788-81A0-E018DCB1555D" dmnElementRef="_45910EF0-D830-4CAA-B6FC-287D3D60902C" sourceElement="_87C6D4E2-C9D6-43FA-8491-E4FA9CC7359B" targetElement="_E7B5CCAB-6681-4EAA-99E4-52D4DC3E14C9">
+        <di:waypoint x="1540" y="60" />
+        <di:waypoint x="1280" y="0" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6C2CD638-4BA2-460D-B98F-E25124EB050B" dmnElementRef="_8E7DD2AF-170D-4CFF-BCDA-7D314E7D6FC4" sourceElement="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB" targetElement="_AB6D4282-0FDD-4995-9961-1110D8F3F17A">
+        <di:waypoint x="1060" y="140" />
+        <di:waypoint x="1100" y="-140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CA30D5B0-079E-4882-AD06-076A7DD84DAB" dmnElementRef="_0F5CF674-7D8A-4844-93E8-2D31C7D27D33" sourceElement="_E7B5CCAB-6681-4EAA-99E4-52D4DC3E14C9" targetElement="_AB6D4282-0FDD-4995-9961-1110D8F3F17A">
+        <di:waypoint x="1280" y="0" />
+        <di:waypoint x="1100" y="-140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_85585D58-54BF-4737-AF1B-FA40CE75373C" dmnElementRef="_A2F56B67-5300-49F7-8FE3-7306B328168F" sourceElement="_F74CC03E-55C7-4290-97D2-481DE4EF257C" targetElement="_AB6D4282-0FDD-4995-9961-1110D8F3F17A">
+        <di:waypoint x="900" y="0" />
+        <di:waypoint x="1100" y="-140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_FDEE0081-0671-4046-A95D-4662E26B9DFD" dmnElementRef="_2C338063-1B46-42C4-A2A3-1E056343225D" sourceElement="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB" targetElement="_DDB5E088-BC9F-4A8D-9581-D62DBF45CA81">
+        <di:waypoint x="1060" y="140" />
+        <di:waypoint x="680" y="-20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6EF9344C-D95B-4782-8669-DFA0BE59F271" dmnElementRef="_3E11D9BC-EC25-45CE-9023-18B820FCEADC" sourceElement="_6A7DEFD4-3B4B-482E-93C2-CC7AEB8DDC54" targetElement="_DDB5E088-BC9F-4A8D-9581-D62DBF45CA81">
+        <di:waypoint x="1320" y="360" />
+        <di:waypoint x="680" y="-20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_D14199F2-8E37-4A5C-8BF6-DD1C7EA731DF" dmnElementRef="_D5A38335-DAAD-4DE8-A4DC-A5338C3722D8" sourceElement="_E7B5CCAB-6681-4EAA-99E4-52D4DC3E14C9" targetElement="_B6A94D1F-3569-40AE-8FE0-930C6314834C">
+        <di:waypoint x="1280" y="0" />
+        <di:waypoint x="860" y="-160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_1C675B76-C2E7-4C55-ADC1-CF2080FC9AD3" dmnElementRef="_A6408F1E-042C-499A-9EBE-60DFFD3447EE" sourceElement="_AB6D4282-0FDD-4995-9961-1110D8F3F17A" targetElement="_B6A94D1F-3569-40AE-8FE0-930C6314834C">
+        <di:waypoint x="1100" y="-140" />
+        <di:waypoint x="860" y="-160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_13F2A4CF-88BF-4C00-9DEC-BCBD04E983C7" dmnElementRef="_5A177383-6EB1-4E21-B97A-D490A1B8A3D7" sourceElement="_DDB5E088-BC9F-4A8D-9581-D62DBF45CA81" targetElement="_B6A94D1F-3569-40AE-8FE0-930C6314834C">
+        <di:waypoint x="680" y="-20" />
+        <di:waypoint x="860" y="-160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
