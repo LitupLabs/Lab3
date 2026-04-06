@@ -135,7 +135,7 @@
     </literalExpression>
   </decision>
   <decision name="Eligible Vendors" id="_74AEE765-B589-4553-B442-EC7CA06DC64F">
-    <variable name="Eligible Vendors" id="_B591E614-1D22-4E46-99FD-8072ED63FC2C" />
+    <variable name="Eligible Vendors" id="_B591E614-1D22-4E46-99FD-8072ED63FC2C" typeRef="VendorList" />
     <informationRequirement id="_330960B7-567F-48FE-BA74-9A0D48DAD687">
       <requiredInput href="#_8C6B02FC-9824-4617-AF03-711A3C423C21" />
     </informationRequirement>
@@ -145,6 +145,10 @@
     <knowledgeRequirement id="_11B5DA33-5E10-4C30-818A-AC0F454F91D7">
       <requiredKnowledge href="#_3FF79A86-3180-4D92-8815-C28E6BC426DE" />
     </knowledgeRequirement>
+    <filter id="_1B067560-C8EE-4C15-8647-DBFD1F592CC9" typeRef="VendorList" label="Eligible Vendors">
+      <in id="_BA87FE0E-DC97-4306-BDFB-48B1DD2E6FB0" />
+      <match id="_16C54CDA-3DFF-4B6A-BB75-6FE4C0F3C333" />
+    </filter>
   </decision>
   <decision name="Scored Vendors" id="_BCC49480-AB19-486F-967D-9BF4E7B714BF">
     <variable name="Scored Vendors" id="_B1D6578E-9295-462F-84C4-04292A70B06E" />
