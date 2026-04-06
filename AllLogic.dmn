@@ -72,8 +72,8 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_36CCD60F-AEB9-4E71-871F-598505176609" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_D36861E4-8BFC-4EF4-82F1-61D449E7EE73" name="items" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>Item</typeRef>
+    <itemComponent id="_D36861E4-8BFC-4EF4-82F1-61D449E7EE73" name="items" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ItemList</typeRef>
     </itemComponent>
     <itemComponent id="_BA51BE66-C532-45AF-9976-8075B837C537" name="totalAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -112,27 +112,24 @@
     <knowledgeRequirement id="_55ED0D31-6C4A-4AEB-979E-52C34168B13C">
       <requiredKnowledge href="#_64F349BF-0EC7-4CAF-8CE1-83C045688CD1" />
     </knowledgeRequirement>
-    <for id="_4379EDEA-9EBC-42D9-ABDE-28A9151FD004" typeRef="Amount" label="Item Totals" iteratorVariable="item">
+    <for id="_4379EDEA-9EBC-42D9-ABDE-28A9151FD004" typeRef="Amount" label="Item Totals" iteratorVariable="i">
       <in id="_24F100D0-1372-4EED-A48D-494EB4C574E0">
         <literalExpression id="_8CD5357B-93C8-4D9E-8323-A86B0CF7268B" label="Expression Name">
           <text>PurchaseRequest.items</text>
         </literalExpression>
       </in>
-      <return id="_399EA429-97D6-4116-A7DA-F93E5E27F445">
+      <return id="_834FD7B3-A371-46FD-AFB5-6B8DB5DF444B">
         <literalExpression id="_DFF6544A-D0E5-4712-B363-1DD06E967DEA" label="Expression Name">
-          <text>Calculate Item Total(item)</text>
+          <text>Calculate Item Total()</text>
         </literalExpression>
       </return>
     </for>
   </decision>
   <decision name="Total Procurement Cost" id="_0CCD6F61-9D33-48F0-8150-F1664E67F9C6">
-    <variable name="Total Procurement Cost" id="_3F78B6DD-5AA1-43AA-91AB-FCC2069A10A2" typeRef="number" />
+    <variable name="Total Procurement Cost" id="_3F78B6DD-5AA1-43AA-91AB-FCC2069A10A2" />
     <informationRequirement id="_962A5DBF-AA57-4656-B994-AA0A476517AE">
       <requiredDecision href="#_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8" />
     </informationRequirement>
-    <literalExpression id="_B8F2E452-B7ED-44A9-B1E3-F172C4DFEAFB" typeRef="number" label="Total Procurement Cost">
-      <text>sum(Item Totals)</text>
-    </literalExpression>
   </decision>
   <decision name="Eligible Vendors" id="_74AEE765-B589-4553-B442-EC7CA06DC64F">
     <variable name="Eligible Vendors" id="_B591E614-1D22-4E46-99FD-8072ED63FC2C" />
@@ -195,16 +192,17 @@
     </informationRequirement>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
-    <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
-    <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL">
-      <formalParameter id="_1440A952-7A71-4471-9406-9CD036F18A6D" name="item" typeRef="Item" />
-      <literalExpression id="_71EFF929-C2EA-4E28-AA06-78788E10FFB8" label="Return">
-        <text>item.quantity * item.unitPrice</text>
-      </literalExpression>
+    <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" />
+    <encapsulatedLogic id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL" label="Calculate Item Total">
+      <formalParameter id="_1440A952-7A71-4471-9406-9CD036F18A6D" name="p-1" />
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_3FF79A86-3180-4D92-8815-C28E6BC426DE">
-    <variable name="Is Vendor Eligible" id="_85114F76-5FE6-4C0D-87B0-16FB64F27B77" />
+    <variable name="Is Vendor Eligible" id="_85114F76-5FE6-4C0D-87B0-16FB64F27B77" typeRef="boolean" />
+    <encapsulatedLogic label="Is Vendor Eligible" typeRef="boolean" id="_B29E9BCD-8349-4887-95FE-B15FD822F326" kind="FEEL">
+      <formalParameter id="_CED0992D-02C4-41BD-A187-CD09A1F68F36" name="vendor" typeRef="Vendor" />
+      <formalParameter id="_3B833ADE-21F1-44CF-8613-39E0122C0091" name="policies" typeRef="Policies" />
+    </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Calculate Vendor Score" id="_36F05CFB-09DF-45A6-90A0-5A9534A7870A">
     <variable name="Calculate Vendor Score" id="_73767B46-B025-4607-976F-14BF8997594F" />
@@ -226,15 +224,9 @@
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_8CD5357B-93C8-4D9E-8323-A86B0CF7268B">
-            <kie:width>508</kie:width>
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_DFF6544A-D0E5-4712-B363-1DD06E967DEA">
-            <kie:width>508</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_71EFF929-C2EA-4E28-AA06-78788E10FFB8">
-            <kie:width>360</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B8F2E452-B7ED-44A9-B1E3-F172C4DFEAFB">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
