@@ -148,6 +148,18 @@
     <knowledgeRequirement id="_11B5DA33-5E10-4C30-818A-AC0F454F91D7">
       <requiredKnowledge href="#_3FF79A86-3180-4D92-8815-C28E6BC426DE" />
     </knowledgeRequirement>
+    <filter id="_83EF0330-D42F-4EDC-8946-BC0D4A12F0B3" typeRef="VendorList" label="Eligible Vendors">
+      <in id="_7368E427-A039-4E0A-9DCC-FDB72D62CF6D">
+        <literalExpression id="_3564C25E-06E3-4FCA-AED2-B44370014F15" label="Expression Name">
+          <text>Vendors</text>
+        </literalExpression>
+      </in>
+      <match id="_890080B4-BA55-4FE2-9A00-C702FCEF29F5">
+        <literalExpression id="_A77F7860-281B-473B-B021-725E8CD2E5D3" label="Expression Name">
+          <text>vendors[item -&gt; Is Vendor Eligible(item, policies)]</text>
+        </literalExpression>
+      </match>
+    </filter>
   </decision>
   <decision name="Scored Vendors" id="_BCC49480-AB19-486F-967D-9BF4E7B714BF">
     <variable name="Scored Vendors" id="_B1D6578E-9295-462F-84C4-04292A70B06E" />
@@ -250,6 +262,12 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A04F60ED-1992-435D-B043-4DFFEA8FEB66">
             <kie:width>774</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3564C25E-06E3-4FCA-AED2-B44370014F15">
+            <kie:width>667</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A77F7860-281B-473B-B021-725E8CD2E5D3">
+            <kie:width>627</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
