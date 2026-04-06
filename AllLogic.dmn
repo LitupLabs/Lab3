@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8930E52C-F059-4714-B3B0-0BC43C6F0CCF" id="_2F9953F8-AFDC-4DC4-8DAB-FFFF9A869971" name="DMN_066EB0AA-FC7F-4A58-BA06-F0E92B0F4CEE" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8930E52C-F059-4714-B3B0-0BC43C6F0CCF" id="_2F9953F8-AFDC-4DC4-8DAB-FFFF9A869971" name="DMN_066EB0AA-FC7F-4A58-BA06-F0E92B0F4CEE">
   <itemDefinition id="_1A6797E7-5D4B-47E6-8CDE-1509A459D7DD" name="Amount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_0682A866-0A6B-4F5A-B357-5BA31F7207AD" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_47D6D5E1-9258-4484-8B7C-D8CCF85E352D" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -192,9 +192,12 @@
     </informationRequirement>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
-    <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" />
-    <encapsulatedLogic id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL" label="Calculate Item Total">
-      <formalParameter id="_1440A952-7A71-4471-9406-9CD036F18A6D" name="p-1" />
+    <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
+    <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL">
+      <formalParameter id="_1440A952-7A71-4471-9406-9CD036F18A6D" name="item" typeRef="Item" />
+      <literalExpression id="_71EFF929-C2EA-4E28-AA06-78788E10FFB8" label="Return">
+        <text>item.quantity * item.unitPrice</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_3FF79A86-3180-4D92-8815-C28E6BC426DE">
@@ -224,6 +227,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_DFF6544A-D0E5-4712-B363-1DD06E967DEA">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_71EFF929-C2EA-4E28-AA06-78788E10FFB8">
+            <kie:width>360</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
