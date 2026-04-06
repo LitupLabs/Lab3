@@ -25,10 +25,8 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_281FDB52-CC75-459D-B93B-FDAC12C7E490" name="ScoredVendorList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_3F529838-0FA7-4130-A0C4-818FA21081B1" name="vendor" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>Vendor</typeRef>
-    </itemComponent>
+  <itemDefinition id="_281FDB52-CC75-459D-B93B-FDAC12C7E490" name="ScoredVendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>ScoredVendor</typeRef>
   </itemDefinition>
   <itemDefinition id="_846D03DF-333C-4240-A9E5-C55171C25F09" name="ScoredVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_51EE4AA6-2B8C-4DB6-B0D3-D666FBDB12EB" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -160,13 +158,20 @@
     </filter>
   </decision>
   <decision name="Scored Vendors" id="_F0C59265-63C2-433B-AE4E-32B9E5BFAAA7">
-    <variable name="Scored Vendors" id="_9F5B1BBA-88E4-461A-B1E4-315753E57A64" />
+    <variable name="Scored Vendors" id="_9F5B1BBA-88E4-461A-B1E4-315753E57A64" typeRef="ScoredVendorList" />
     <informationRequirement id="_E0C5F2BC-6778-4832-B957-34F2C0C018A7">
       <requiredDecision href="#_74AEE765-B589-4553-B442-EC7CA06DC64F" />
     </informationRequirement>
     <knowledgeRequirement id="_6C5F3B8E-63C8-4978-8B92-EA7A8A431A28">
       <requiredKnowledge href="#_E5CD3220-E513-425D-85A3-E0D5B34B200C" />
     </knowledgeRequirement>
+    <literalExpression id="_DCA2B0D0-A91B-42E6-8A52-DBE5AAB7FD6A" typeRef="ScoredVendorList" label="Scored Vendors">
+      <text>for v in Eligible Vendors
+return {
+  vendorId: v.vendorId,
+  score: Calculate Vendor Score(v)
+}</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
@@ -282,6 +287,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_DBC8DE56-D9E2-4068-B918-89C90B2FB986">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DCA2B0D0-A91B-42E6-8A52-DBE5AAB7FD6A">
+            <kie:width>984</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
