@@ -174,22 +174,13 @@ return {
     </literalExpression>
   </decision>
   <decision name="Best Vendor" id="_F20FC301-EBC6-48DF-9B80-818231144130">
-    <variable name="Best Vendor" id="_2B87D96B-B729-4C09-A51D-4C45957B4434" typeRef="Vendor" />
+    <variable name="Best Vendor" id="_2B87D96B-B729-4C09-A51D-4C45957B4434" typeRef="ScoredVendor" />
     <informationRequirement id="_997A7999-748B-4E94-80C1-88CCC448336F">
       <requiredDecision href="#_F0C59265-63C2-433B-AE4E-32B9E5BFAAA7" />
     </informationRequirement>
-    <filter id="_71F858C0-B42C-4DC7-AD6D-40A2A581914C" typeRef="Vendor" label="Best Vendor">
-      <in id="_750B444B-DA63-456F-8F53-5E29A28CCC77">
-        <literalExpression id="_DD3BC546-E7D5-490E-AC16-71D07A455C86" label="Expression Name">
-          <text>Scored Vendors</text>
-        </literalExpression>
-      </in>
-      <match id="_C918E97D-F9A2-4307-9B8E-43901E50CDA6">
-        <literalExpression id="_02418E7D-BB31-4B24-B782-F76AADF70248" label="Expression Name">
-          <text>score = max(Scored Vendors.score)</text>
-        </literalExpression>
-      </match>
-    </filter>
+    <literalExpression id="_A9F2674D-430B-49ED-B914-AAD36F6DA527" typeRef="ScoredVendor" label="Best Vendor">
+      <text>Scored Vendors[item.score = max(Scored Vendors.score)]</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
@@ -309,11 +300,8 @@ return {
           <kie:ComponentWidths dmnElementRef="_DCA2B0D0-A91B-42E6-8A52-DBE5AAB7FD6A">
             <kie:width>984</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_DD3BC546-E7D5-490E-AC16-71D07A455C86">
-            <kie:width>673</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_02418E7D-BB31-4B24-B782-F76AADF70248">
-            <kie:width>633</kie:width>
+          <kie:ComponentWidths dmnElementRef="_A9F2674D-430B-49ED-B914-AAD36F6DA527">
+            <kie:width>604</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
