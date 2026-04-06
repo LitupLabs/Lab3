@@ -55,6 +55,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_5171CFE0-8AF0-4704-9C29-A9A275A1994C" name="Vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_115042EF-E7A3-46E7-81CD-C76F4847A797" name="deliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_02F2B587-CC68-4DD5-9286-143FA3880113" name="basePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
@@ -145,18 +148,6 @@
     <knowledgeRequirement id="_11B5DA33-5E10-4C30-818A-AC0F454F91D7">
       <requiredKnowledge href="#_3FF79A86-3180-4D92-8815-C28E6BC426DE" />
     </knowledgeRequirement>
-    <filter id="_1B067560-C8EE-4C15-8647-DBFD1F592CC9" typeRef="VendorList" label="Eligible Vendors">
-      <in id="_BA87FE0E-DC97-4306-BDFB-48B1DD2E6FB0">
-        <literalExpression id="_C95306FC-6305-4860-B522-E7847CB580FF" label="Expression Name">
-          <text>Vendors</text>
-        </literalExpression>
-      </in>
-      <match id="_16C54CDA-3DFF-4B6A-BB75-6FE4C0F3C333">
-        <literalExpression id="_B093119A-6E6C-4099-9018-139669E58B4D" label="Expression Name">
-          <text>Vendors[item -&gt; Is Vendor Eligible(item,Policies)</text>
-        </literalExpression>
-      </match>
-    </filter>
   </decision>
   <decision name="Scored Vendors" id="_BCC49480-AB19-486F-967D-9BF4E7B714BF">
     <variable name="Scored Vendors" id="_B1D6578E-9295-462F-84C4-04292A70B06E" />
@@ -259,12 +250,6 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A04F60ED-1992-435D-B043-4DFFEA8FEB66">
             <kie:width>774</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_C95306FC-6305-4860-B522-E7847CB580FF">
-            <kie:width>842</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B093119A-6E6C-4099-9018-139669E58B4D">
-            <kie:width>802</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
