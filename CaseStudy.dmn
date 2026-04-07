@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D0DDA8B7-0F62-418B-9302-61D45EB9923A" id="_EF911F47-F845-4158-B222-76CC71636EE9" name="DMN_64DFF997-ED21-4F67-9E9C-B58069A546D4" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
   <itemDefinition id="_CF464155-6706-4BD5-808A-9065E8F6AE35" name="ListBoolean" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <typeRef>number</typeRef>
+    <typeRef>Any</typeRef>
   </itemDefinition>
   <itemDefinition id="_B7838026-CB9C-4F37-81C9-E38904B1FDA7" name="Unsec_Trades" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
