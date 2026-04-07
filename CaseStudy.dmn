@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D0DDA8B7-0F62-418B-9302-61D45EB9923A" id="_EF911F47-F845-4158-B222-76CC71636EE9" name="DMN_64DFF997-ED21-4F67-9E9C-B58069A546D4" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_CF464155-6706-4BD5-808A-9065E8F6AE35" name="ListBoolean" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>number</typeRef>
+  </itemDefinition>
   <itemDefinition id="_B7838026-CB9C-4F37-81C9-E38904B1FDA7" name="Unsec_Trades" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
   </itemDefinition>
@@ -149,20 +152,20 @@ tl_acct_type in [
     </literalExpression>
   </decision>
   <decision name="Final" id="_407BA7BA-5029-4C67-BD73-16024694D507">
-    <variable name="Final" id="_22814F35-D63C-4626-8BBA-5A56A21C8D34" typeRef="Any" />
+    <variable name="Final" id="_22814F35-D63C-4626-8BBA-5A56A21C8D34" typeRef="ListBoolean" />
     <informationRequirement id="_70BF9833-BB0D-48F2-9FD6-6BCD9B9495AF">
       <requiredInput href="#_FF2E3AF0-E84B-422F-B18A-120E72CD096E" />
     </informationRequirement>
     <informationRequirement id="_5ECD0D88-E370-411A-BF97-6E2D879987D6">
       <requiredDecision href="#_E2DF38FD-F760-4FAC-B6EE-9D199AA09792" />
     </informationRequirement>
-    <for id="_AB6CF1BE-31E5-4BCE-9AAB-5600ADB52DC8" typeRef="Any" label="Final" iteratorVariable="tradeline">
+    <for id="_AB6CF1BE-31E5-4BCE-9AAB-5600ADB52DC8" typeRef="ListBoolean" label="Final" iteratorVariable="tradeline">
       <in id="_A8BE0FBB-8FA8-42E4-8BC8-503E0F611932">
         <literalExpression id="_82419376-303F-4C75-B3C4-06BB79212C71" label="Expression Name">
           <text>LoanRequest.applicant.tbl_tradelines</text>
         </literalExpression>
       </in>
-      <return id="_0DC8674F-6106-4DBC-911A-CCC39A330DA8">
+      <return id="_9C8BE26E-DAEC-42D7-9815-D4BBF4BD7941">
         <context id="_19C5CE7D-BDA5-451B-8CE3-18CF317C6073" label="Expression Name">
           <contextEntry id="_A132688B-7CE4-489E-BFCC-6CC8F52B230A">
             <variable id="_801BD85A-1E3B-43F0-AECC-BCC2DC78A348" name="LiveorNot" typeRef="boolean" />
@@ -182,10 +185,10 @@ tl_acct_type in [
             </literalExpression>
           </contextEntry>
           <contextEntry id="_F4E44661-BD39-4AE6-8A82-8F0E6F49E864">
-            <variable id="_FD485D55-4063-4672-8DD7-3D53E767A7AD" name="LiveAndUnsecured" typeRef="boolean">
+            <variable id="_FD485D55-4063-4672-8DD7-3D53E767A7AD" name="LiveAndUnsecured" typeRef="number">
               <description></description>
             </variable>
-            <decisionTable id="_5AB13337-ED54-4ACC-9168-1E3E5325B79F" typeRef="boolean" hitPolicy="UNIQUE" label="LiveAndUnsecured">
+            <decisionTable id="_5AB13337-ED54-4ACC-9168-1E3E5325B79F" typeRef="number" hitPolicy="UNIQUE" label="LiveAndUnsecured">
               <input id="_1B8AFB99-DF96-4075-9C4A-4A7E39270BDF">
                 <inputExpression id="_7761E97F-51F0-4BF0-96F6-A36FDE7B8042" typeRef="boolean">
                   <text>LiveorNot</text>
@@ -206,7 +209,7 @@ tl_acct_type in [
                   <text>true</text>
                 </inputEntry>
                 <outputEntry id="_3968AE42-A076-4852-A23D-1158138C9945">
-                  <text>true</text>
+                  <text>1</text>
                 </outputEntry>
                 <annotationEntry>
                   <text>// Your annotations here</text>
@@ -220,7 +223,7 @@ tl_acct_type in [
                   <text>false</text>
                 </inputEntry>
                 <outputEntry id="_50FE23FD-0D9D-450B-B0D7-85040240EFCD">
-                  <text>false</text>
+                  <text>0</text>
                 </outputEntry>
                 <annotationEntry>
                   <text></text>
@@ -234,7 +237,7 @@ tl_acct_type in [
                   <text>true</text>
                 </inputEntry>
                 <outputEntry id="_C5834EEB-D8F5-4623-9BDE-3874F86DF644">
-                  <text>false</text>
+                  <text>0</text>
                 </outputEntry>
                 <annotationEntry>
                   <text></text>
@@ -248,7 +251,7 @@ tl_acct_type in [
                   <text>false</text>
                 </inputEntry>
                 <outputEntry id="_3D187A03-C15B-4948-8939-735C23F2132F">
-                  <text>false</text>
+                  <text>0</text>
                 </outputEntry>
                 <annotationEntry>
                   <text></text>
@@ -262,7 +265,7 @@ tl_acct_type in [
                   <text>null</text>
                 </inputEntry>
                 <outputEntry id="_A3742E85-FE5F-4A3B-B516-C9BBF8838527">
-                  <text>false</text>
+                  <text>0</text>
                 </outputEntry>
                 <annotationEntry>
                   <text></text>
@@ -276,7 +279,7 @@ tl_acct_type in [
                   <text>false</text>
                 </inputEntry>
                 <outputEntry id="_C2959F65-15DC-4B73-920E-C8B5569A8578">
-                  <text>false</text>
+                  <text>0</text>
                 </outputEntry>
                 <annotationEntry>
                   <text></text>
@@ -290,7 +293,7 @@ tl_acct_type in [
                   <text>null</text>
                 </inputEntry>
                 <outputEntry id="_3CD38DE1-90D2-4B3D-A7C7-54F26E1E6BEA">
-                  <text>false</text>
+                  <text>0</text>
                 </outputEntry>
                 <annotationEntry>
                   <text></text>
@@ -313,7 +316,11 @@ tl_acct_type in [
       <requiredDecision href="#_407BA7BA-5029-4C67-BD73-16024694D507" />
     </informationRequirement>
     <literalExpression id="_3603F131-9799-4F4D-85FF-EEAEC3F57E0D" typeRef="number" label="Count">
-      <text>sum(Final)</text>
+      <text>count(
+  Final[
+    LiveAndUnsecured = 1
+  ]
+)</text>
     </literalExpression>
   </decision>
   <inputData name="LoanRequest" id="_FF2E3AF0-E84B-422F-B18A-120E72CD096E">
@@ -358,7 +365,7 @@ tl_acct_type in [
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3603F131-9799-4F4D-85FF-EEAEC3F57E0D">
-            <kie:width>190</kie:width>
+            <kie:width>762</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
