@@ -307,6 +307,15 @@ tl_acct_type in [
       </return>
     </for>
   </decision>
+  <decision name="Count" id="_BA118C44-2906-4353-851C-E8E8C6873607">
+    <variable name="Count" id="_943E85BB-0A09-4D0E-8594-C498367F21E5" typeRef="number" />
+    <informationRequirement id="_5B8FE787-7D7F-4C67-85C4-DECB6BE87D67">
+      <requiredDecision href="#_407BA7BA-5029-4C67-BD73-16024694D507" />
+    </informationRequirement>
+    <literalExpression id="_3603F131-9799-4F4D-85FF-EEAEC3F57E0D" typeRef="number" label="Count">
+      <text>sum(Final)</text>
+    </literalExpression>
+  </decision>
   <inputData name="LoanRequest" id="_FF2E3AF0-E84B-422F-B18A-120E72CD096E">
     <variable name="LoanRequest" id="_0F562DAD-4C21-4CDF-8978-C1229832BF70" typeRef="LoanRequest" />
   </inputData>
@@ -348,6 +357,9 @@ tl_acct_type in [
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3603F131-9799-4F4D-85FF-EEAEC3F57E0D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_D0A4620F-1CD6-441E-8BE7-B1AA3731BFE7" dmnElementRef="_FF2E3AF0-E84B-422F-B18A-120E72CD096E" isCollapsed="false" isListedInputData="false">
@@ -367,6 +379,9 @@ tl_acct_type in [
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_1C560A35-888F-4F4D-B699-90AB8F4B8B70" dmnElementRef="_407BA7BA-5029-4C67-BD73-16024694D507" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="360" y="440" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_53CFB844-B32E-48B6-B9FE-534388BB54BA" dmnElementRef="_BA118C44-2906-4353-851C-E8E8C6873607" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="700" y="420" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_BB5BD314-D6B5-4722-A657-1AF60FAD5648-AUTO-TARGET" dmnElementRef="_DD11ECFC-1844-4C38-93CF-46D48C24B00D" sourceElement="_D0A4620F-1CD6-441E-8BE7-B1AA3731BFE7" targetElement="_F704DB65-AD0A-4525-AB67-AF5216C0751E">
         <di:waypoint x="180" y="340" />
@@ -399,6 +414,10 @@ tl_acct_type in [
       <dmndi:DMNEdge id="_F50454CD-C106-4E62-892B-AC57671EFF72" dmnElementRef="_5ECD0D88-E370-411A-BF97-6E2D879987D6" sourceElement="_DAA8158B-6DB8-48FA-8D66-6737280554BB" targetElement="_1C560A35-888F-4F4D-B699-90AB8F4B8B70">
         <di:waypoint x="540" y="320" />
         <di:waypoint x="440" y="480" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CAA7E6EF-C811-4981-BCDF-EDDA42D0C8EC" dmnElementRef="_5B8FE787-7D7F-4C67-85C4-DECB6BE87D67" sourceElement="_1C560A35-888F-4F4D-B699-90AB8F4B8B70" targetElement="_53CFB844-B32E-48B6-B9FE-534388BB54BA">
+        <di:waypoint x="440" y="480" />
+        <di:waypoint x="780" y="460" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
