@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D0DDA8B7-0F62-418B-9302-61D45EB9923A" id="_EF911F47-F845-4158-B222-76CC71636EE9" name="DMN_64DFF997-ED21-4F67-9E9C-B58069A546D4" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D0DDA8B7-0F62-418B-9302-61D45EB9923A" id="_EF911F47-F845-4158-B222-76CC71636EE9" name="DMN_64DFF997-ED21-4F67-9E9C-B58069A546D4">
   <itemDefinition id="_CF464155-6706-4BD5-808A-9065E8F6AE35" name="ListBoolean" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>Any</typeRef>
   </itemDefinition>
@@ -18,6 +18,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_29F921B9-B213-4973-AC5F-12D34099F984" name="Tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2E4690D3-C87B-4A35-8675-85B5A3C5C0E3" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_9DB11AC8-339F-49AD-8A42-726850C454DD" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
@@ -323,6 +326,15 @@ tl_acct_type in [
 )</text>
     </literalExpression>
   </decision>
+  <decision name="Total Overdue" id="_57D7C9D6-8C3D-4A5B-8F86-7EAC6E936953">
+    <variable name="Total Overdue" id="_CDBCFD1B-DE52-42AB-BC19-EA4ACEBC12C3" typeRef="number" />
+    <informationRequirement id="_97D3BFAD-E61F-4E20-937F-80AB851EC76B">
+      <requiredInput href="#_FF2E3AF0-E84B-422F-B18A-120E72CD096E" />
+    </informationRequirement>
+    <literalExpression id="_04F502AA-8A0D-48A3-AFAD-C89641242758" typeRef="number" label="Total Overdue">
+      <text>sum(LoanRequest.applicant.tbl_tradelines.tl_overdue_amount)</text>
+    </literalExpression>
+  </decision>
   <inputData name="LoanRequest" id="_FF2E3AF0-E84B-422F-B18A-120E72CD096E">
     <variable name="LoanRequest" id="_0F562DAD-4C21-4CDF-8978-C1229832BF70" typeRef="LoanRequest" />
   </inputData>
@@ -367,6 +379,9 @@ tl_acct_type in [
           <kie:ComponentWidths dmnElementRef="_3603F131-9799-4F4D-85FF-EEAEC3F57E0D">
             <kie:width>762</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_04F502AA-8A0D-48A3-AFAD-C89641242758">
+            <kie:width>511</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_D0A4620F-1CD6-441E-8BE7-B1AA3731BFE7" dmnElementRef="_FF2E3AF0-E84B-422F-B18A-120E72CD096E" isCollapsed="false" isListedInputData="false">
@@ -389,6 +404,9 @@ tl_acct_type in [
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_53CFB844-B32E-48B6-B9FE-534388BB54BA" dmnElementRef="_BA118C44-2906-4353-851C-E8E8C6873607" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="700" y="420" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_3B5E1E09-1204-4A35-B91C-8F0429D4D52F" dmnElementRef="_57D7C9D6-8C3D-4A5B-8F86-7EAC6E936953" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="740" y="140" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_BB5BD314-D6B5-4722-A657-1AF60FAD5648-AUTO-TARGET" dmnElementRef="_DD11ECFC-1844-4C38-93CF-46D48C24B00D" sourceElement="_D0A4620F-1CD6-441E-8BE7-B1AA3731BFE7" targetElement="_F704DB65-AD0A-4525-AB67-AF5216C0751E">
         <di:waypoint x="180" y="340" />
@@ -425,6 +443,10 @@ tl_acct_type in [
       <dmndi:DMNEdge id="_CAA7E6EF-C811-4981-BCDF-EDDA42D0C8EC" dmnElementRef="_5B8FE787-7D7F-4C67-85C4-DECB6BE87D67" sourceElement="_1C560A35-888F-4F4D-B699-90AB8F4B8B70" targetElement="_53CFB844-B32E-48B6-B9FE-534388BB54BA">
         <di:waypoint x="440" y="480" />
         <di:waypoint x="780" y="460" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2336296E-A7BD-49C9-BE9D-ABAA3BE7ABEA" dmnElementRef="_97D3BFAD-E61F-4E20-937F-80AB851EC76B" sourceElement="_D0A4620F-1CD6-441E-8BE7-B1AA3731BFE7" targetElement="_3B5E1E09-1204-4A35-B91C-8F0429D4D52F">
+        <di:waypoint x="180" y="340" />
+        <di:waypoint x="820" y="180" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
